@@ -1,4 +1,3 @@
-
 // 打开 Deno KV（全局只需打开一次）
 const kv = await Deno.openKv();
 // 使用一个固定的 key 来存储目标 URL
