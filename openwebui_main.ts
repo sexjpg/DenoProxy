@@ -2,7 +2,7 @@ import { parse } from "https://deno.land/std@0.182.0/flags/mod.ts";
 import { serve } from "https://deno.land/std@0.182.0/http/server.ts";
 
 const DEFAULT_PORT = 8080;
-const TARGET_HOST = "zendls-memos.hf.space";
+const TARGET_HOST = "aistudio.google.com";
 
 function log(message: string) {
   console.log(`[${new Date().toISOString()}] ${message}`);
