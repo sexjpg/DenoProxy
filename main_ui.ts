@@ -145,7 +145,7 @@ async function handleProxyRequest(req: Request): Promise<Response> {
 async function mainHandler(req: Request): Promise<Response> {
   const url = new URL(req.url);
 
-  if (url.pathname === "/" && req.method === "GET") {
+  if (url.pathname === "/config" && req.method === "GET") {
     return new Response(getUiContent(), {
       headers: { "Content-Type": "text/html; charset=utf-8" },
     });
@@ -161,7 +161,7 @@ async function mainHandler(req: Request): Promise<Response> {
       config.accessControlAllowOrigin = formData.get("accessControlAllowOrigin") as string || config.accessControlAllowOrigin;
       
       log("配置已更新: " + JSON.stringify(config));
-      return Response.redirect(req.headers.get("Referer") || "/", 303);
+      return Response.redirect(req.headers.get("Referer") || "/config", 303);
     } catch (error) {
       log(`配置更新错误: ${error.message}`);
       return new Response("更新配置失败", { status: 400 });
